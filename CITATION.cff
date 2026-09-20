@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite it using the metadata below.
+title: "clinical-reporting-ir: reproducibility package"
+authors:
+  - family-names: Yan
+    given-names: Jaime
+    email: myan7@my.harrisburgu.edu
+    affiliation: >-
+      Department of Data Science, Harrisburg University of Science and
+      Technology, Harrisburg, PA, United States
+year: 2026
+license: MIT
+repository-code: https://github.com/yanmingyu92/clinical-reporting-ir
+preferred-citation:
+  type: article
+  title: >-
+    A Non-Destructive Methodological Framework for Modernizing Legacy
+    Clinical Reporting Systems for AI-Driven Pharmacoinformatics: A SAS Case
+    Study
+  authors:
+    - family-names: Yan
+      given-names: Jaime
+      email: myan7@my.harrisburgu.edu
+      affiliation: >-
+        Department of Data Science, Harrisburg University of Science and
+        Technology, Harrisburg, PA, United States
+  journal: Frontiers in Pharmacology
+  year: 2026
+  doi: 10.3389/fphar.2026.1876207

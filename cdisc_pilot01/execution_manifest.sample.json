@@ -1,0 +1,51 @@
+{
+  "execution_id": "CDISCPILOT01-2026-05-06-001",
+  "timestamp": "2026-05-06T03:23:32Z",
+  "user": "jyan",
+  "framework_version": "5.0.0",
+  "framework_lock_hash": "sha256:01e08410080741c1f164e3b7459ea15db5966cef6629bfeb2691175f269efd00",
+  "study_config_hash": "sha256:2edcdead48319d7be606b48fc74555e50cb6dc8c4a916ccde8eadd5bbf8c708e",
+  "execution_plan_hash": "sha256:6a140a454c86adb7df878efbc1fe22c8b1110895c66bce26ec845c4b84eb39d4",
+  "environment": {
+    "sas_version": "9.4M7",
+    "python_version": "3.11.7",
+    "os": "Windows 10 x64",
+    "hostname": "workstation-01"
+  },
+  "inputs": [
+    {
+      "dataset": "DM",
+      "path": "cdisc_pilot01/sdtm_datasets/dm.xpt",
+      "hash": "sha256:7327baea97fd532d02385248da0c7240402e770099507e2c3a88e2ac706c02a6",
+      "nobs": 306
+    }
+  ],
+  "generated_sas": [
+    {
+      "file": "generated/PUB-DEMOGRAPHICS.sas",
+      "hash": "sha256:221a5dcc0a5747a8d6c2b64da41079c5b0d187c0e2f68a172fde41796f5f0661",
+      "archived": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "PUB-DEMOGRAPHICS",
+      "ir_cells_hash": "sha256:359336421a995ff07120662a8948c53eeb5ba3ef5899d117301db91ad1e1fcf6",
+      "ir_structure_hash": "sha256:f320aa65a9aa2cc911b51b5eb7d803031f2734a05ed2f6c23d1afe93e7c4435b",
+      "rtf_hash": "sha256:5341602d6f3576749ded3169c34d2a2d34d73744e7642191e2615139048b8625"
+    }
+  ],
+  "ir_reconciliation": [
+    {
+      "report": "PUB-DEMOGRAPHICS",
+      "cells_checked": 182,
+      "cells_matched": 182,
+      "status": "PASS"
+    }
+  ],
+  "audit_trail_hash": "sha256:e0149c771af7e20ba9559e21f6ce91b96256471817e365245e16d583fc445c29",
+  "approvals": {
+    "gate_1": "pending",
+    "gate_2": "pending"
+  }
+}

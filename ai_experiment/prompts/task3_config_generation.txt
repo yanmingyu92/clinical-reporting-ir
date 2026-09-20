@@ -1,0 +1,9 @@
+Task: Convert a natural-language SAP section into a structured YAML configuration for the reporting framework.
+
+Full prompt sent to LLM:
+
+Given the following SAP (Statistical Analysis Plan) section, generate a YAML configuration file for a clinical reporting framework. Use the following schema: report_type, title, population, dataset, variables (with sub-keys), statistical_methods (list), output_format. Map every SAP requirement to a concrete configuration parameter.
+
+Input file: inputs/sap_tte_sample.txt (SAP excerpt for Table 14.2.2, time-to-event analysis)
+
+Model: Claude Opus 4.6 (temperature default). Recorded verbatim in experiment_log.md, Experiment 3.

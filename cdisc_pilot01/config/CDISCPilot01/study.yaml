@@ -1,0 +1,11 @@
+# CDISCPilot01 Study Configuration
+# Public benchmark track for methodology paper (Phase E)
+
+study_id: CDISCPilot01
+protocol: CDISCPILOT01
+analysis: PRIMARY
+sponsor: "CDISC"
+therapeutic_area: neurology
+indication: "Alzheimer's Disease"
+phase: "Phase III"
+title: "A Randomized, Double-Blind, Placebo-Controlled Study of Xanomeline in Alzheimer's Disease"

@@ -1,0 +1,25 @@
+# Narrative Summary of Demographics (Table 14.1.1)
+
+## Table 14.1.1: Summary of Demographics (Safety Population)
+
+The demographic characteristics of the safety population are summarized below based on data from 254 subjects across three treatment groups: Placebo (N=86), Xanomeline Low Dose (N=84), and Xanomeline High Dose (N=84).
+
+### Age
+
+The overall mean age of subjects in the safety population was 75.1 years (SD = 8.25), with a median of 76.0 years and a range of 51 to 89 years. Mean age was generally comparable across treatment groups: the Placebo group had a mean age of 75.2 years (SD = 8.59; median 76.0; range 52–89), the Xanomeline Low Dose group had a mean age of 75.7 years (SD = 8.29; median 77.5; range 51–88), and the Xanomeline High Dose group had a mean age of 74.4 years (SD = 7.89; median 76.0; range 56–88). The age distributions were well balanced across the three treatment arms.
+
+### Sex
+
+Overall, the majority of subjects were female, comprising 143 of 254 subjects (56.3%), while 111 subjects (43.7%) were male. The proportion of females was higher in the Placebo group (53 [61.6%]) and the Xanomeline Low Dose group (50 [59.5%]) compared with the Xanomeline High Dose group (40 [47.6%]). Conversely, the Xanomeline High Dose group had a somewhat higher proportion of males (44 [52.4%]) relative to the Placebo (33 [38.4%]) and Xanomeline Low Dose (34 [40.5%]) groups.
+
+### Race
+
+The study population was predominantly White, with 220 of 254 subjects (86.6%) identifying as White across all treatment groups. The distribution was consistent across arms: 74 (86.0%) in the Placebo group, 72 (85.7%) in the Xanomeline Low Dose group, and 74 (88.1%) in the Xanomeline High Dose group. Black or African American subjects comprised 23 subjects overall (9.1%), with 8 (9.3%) in the Placebo group, 6 (7.1%) in the Xanomeline Low Dose group, and 9 (10.7%) in the Xanomeline High Dose group. The remaining subjects belonged to other racial categories (data truncated in source).
+
+### Overall Assessment
+
+In summary, the demographic characteristics of the safety population were generally well balanced across the three treatment groups. The subjects were elderly (overall mean age approximately 75 years), predominantly female (56.3%), and predominantly White (86.6%). A modest numerical imbalance in sex distribution was observed, with a higher proportion of males in the Xanomeline High Dose group compared with the other two groups; however, no notable imbalances in age or race were apparent across treatment arms.
+
+---
+
+*Source: Table 14.1.1, Summary of Demographics (Safety Population); Report T-14.1.1, Execution EXEC-2026-001. Note: The race category data were partially truncated in the source input; the narrative above reflects all available data.*

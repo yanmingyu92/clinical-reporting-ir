@@ -1,0 +1,53 @@
+# PUB-DEMOGRAPHICS: Table 14-1.03 Demographics and Baseline Characteristics
+# CDISCPilot01 Public Benchmark — Phase E
+# Golden reference: cdisc_pilot01/golden_outputs/PUB-DEMOGRAPHICS.rtf
+# Population: ITT (N=254: Placebo=86, XanLow=84, XanHigh=84)
+
+report_type: demographics
+title: "Table 14-1.03 Summary of Demographic and Baseline Characteristics"
+subtitle: "Intent-to-Treat Analysis Set"
+
+parameters:
+  population: itt
+  source_dataset: adam.adsl
+  subject_dataset: adam.adsl
+  treatment_var: TRT01A
+  treatment_code_var: TRT01AN
+  include_total: false
+  page_orientation: L
+  font_size: 8
+
+pipeline:
+  data:
+    - dl_load_dataset
+    - dl_filter_population
+  compute:
+    - cl_descriptive_stats   # 1: Age
+    - cl_frequency_count     # 2: Pooled Age Group
+    - cl_frequency_count     # 3: Race
+    - cl_descriptive_stats   # 4: Height
+    - cl_descriptive_stats   # 5: Weight
+    - cl_descriptive_stats   # 6: BMI
+    - cl_descriptive_stats   # 7: MMSE
+  render: re_rtf_table
+
+compute_step_params:
+  cl_descriptive_stats_1:
+    analysis_var: AGE
+    group_vars: ""
+  cl_frequency_count_2:
+    group_vars: AGEGR1
+  cl_frequency_count_3:
+    group_vars: RACE
+  cl_descriptive_stats_4:
+    analysis_var: HEIGHTBL
+    group_vars: ""
+  cl_descriptive_stats_5:
+    analysis_var: WEIGHTBL
+    group_vars: ""
+  cl_descriptive_stats_6:
+    analysis_var: BMIBL
+    group_vars: ""
+  cl_descriptive_stats_7:
+    analysis_var: MMSETOT
+    group_vars: ""

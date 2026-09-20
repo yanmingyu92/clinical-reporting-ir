@@ -1,0 +1,11 @@
+report_id,element_type,element_id,label,order,alignment,width
+PUB-AE-BY-SOC,TITLE,TITLE_1,Table 14-4.02 Summary of Adverse Events by System Organ Class and Preferred Term - Safety Analysis Set,1,,
+PUB-AE-BY-SOC,COLUMN_HEADER,LABEL,Parameter,10,left,6
+PUB-AE-BY-SOC,COLUMN_HEADER,Placebo_n,Placebo,21,center,
+PUB-AE-BY-SOC,COLUMN_HEADER,Placebo_pct,(%),22,center,
+PUB-AE-BY-SOC,COLUMN_HEADER,Total_n,Total,23,center,
+PUB-AE-BY-SOC,COLUMN_HEADER,Total_pct,(%),24,center,
+PUB-AE-BY-SOC,COLUMN_HEADER,Xanomeline_High_Dose_n,Xanomeline High Dose,25,center,
+PUB-AE-BY-SOC,COLUMN_HEADER,Xanomeline_High_Dose_pct,(%),26,center,
+PUB-AE-BY-SOC,COLUMN_HEADER,Xanomeline_Low_Dose_n,Xanomeline Low Dose,27,center,
+PUB-AE-BY-SOC,COLUMN_HEADER,Xanomeline_Low_Dose_pct,(%),28,center,

@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.venv/
+cdisc_pilot01/parity_output/

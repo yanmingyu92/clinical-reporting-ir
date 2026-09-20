@@ -1,0 +1,25 @@
+# CDISCPilot01 Treatment Arm Definitions
+# Placebo=86, Xanomeline Low Dose=84, Xanomeline High Dose=84 (ITT/Safety=254)
+
+treatment_var: TRT01A
+treatment_arms:
+  - code: "Placebo"
+    label: "Placebo"
+    order: 0
+    n_label_template: "Placebo (N={n})"
+
+  - code: "Xanomeline Low Dose"
+    label: "Xanomeline Low Dose"
+    order: 54
+    n_label_template: "Xanomeline Low Dose (N={n})"
+
+  - code: "Xanomeline High Dose"
+    label: "Xanomeline High Dose"
+    order: 81
+    n_label_template: "Xanomeline High Dose (N={n})"
+
+  - code: "Total"
+    label: "Total"
+    order: 99
+    n_label_template: "Total (N={n})"
+    is_total: true

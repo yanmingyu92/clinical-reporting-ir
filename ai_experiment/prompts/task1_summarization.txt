@@ -1,0 +1,9 @@
+Task: Convert structured IR JSON into a natural-language summary suitable for inclusion in a Clinical Study Report (CSR) results section.
+
+Full prompt sent to LLM:
+
+Given the following JSON representation of a clinical trial demographics table, provide a natural-language summary suitable for a clinical study report. The JSON uses a typed-cell IR schema where each object has: report_id, row_id, col_id, cell_value (raw numeric), cell_formatted (display string), cell_type (INTEGER, DECIMAL, PERCENTAGE, LABEL, HEADER, FOOTNOTE, EMPTY), and sort_order. Reconstruct the table semantics from these fields and produce an accurate narrative.
+
+Input file: inputs/ir_demographics_sample.json (74 cells, T-14.1.1, CDISCPilot01 Safety Population)
+
+Model: Claude Opus 4.6 (temperature default). Recorded verbatim in experiment_log.md, Experiment 1.

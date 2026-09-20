@@ -1,0 +1,26 @@
+# PUB-KM-TTDE: Figure 14-5.01 Kaplan-Meier Plot for Time to First Dermatologic Event
+# CDISCPilot01 Public Benchmark — Phase E
+# Golden reference: cdisc_pilot01/golden_outputs/PUB-KM-TTDE.rtf
+# Population: Safety (N=254)
+
+report_type: km_plot
+title: "Figure 14-5.01 Kaplan-Meier Plot of Time to First Dermatologic Event"
+subtitle: "Safety Analysis Set"
+
+parameters:
+  population: safety
+  population_flag_var: SAFFL
+  source_dataset: adam.adtte
+  subject_dataset: adam.adsl
+  time_var: AVAL
+  censor_var: CNSR
+  treatment_var: TRT01A
+  treatment_code_var: TRT01AN
+  endpoint: "Time to First Dermatologic Event"
+  x_label: "Study Day"
+  y_label: "Survival Probability"
+  at_risk_table: true
+  ci_type: log_log
+  confidence_level: 0.95
+  include_total: false
+  page_orientation: L

@@ -1,0 +1,75 @@
+# AE Summary by System Organ Class and Preferred Term
+# Report Type: Safety table showing incidence of adverse events
+# Replaces (generic legacy equivalents): legacy_ae_summary.sas, legacy_specific_ae.sas
+
+name: ae_summary_by_soc
+description: "Adverse events summary table by System Organ Class (SOC) and Preferred Term (PT), with incidence counts and percentages by treatment arm."
+category: safety
+version: "1.0.0"
+
+pipeline:
+  data:
+    - dl_load_dataset     # Load ADAE and ADSL
+    - dl_merge_adsl         # Merge treatment arm from ADSL
+    - dl_filter_population  # Filter to safety population
+    - dl_derive_flags       # Derive AE analysis flags if needed
+  compute:
+    - cl_frequency_count    # Count subjects with AE + incidence by SOC/PT/treatment
+  render: re_rtf_table
+
+parameters:
+  population:
+    type: string
+    required: true
+    default: safety
+    description: "Population for analysis"
+  ae_dataset:
+    type: dataset_ref
+    required: true
+    default: adam.adae
+    description: "Source AE dataset"
+  subject_dataset:
+    type: dataset_ref
+    required: true
+    default: adam.adsl
+    description: "Source subject-level dataset"
+  soc_var:
+    type: string
+    required: false
+    default: AEBODSYS
+    description: "System Organ Class variable"
+  pt_var:
+    type: string
+    required: false
+    default: AEDECOD
+    description: "Preferred Term variable"
+  sort_by:
+    type: string
+    required: false
+    default: frequency
+    description: "Sort order for SOCs"
+    allowed_values: [frequency, alphabetical]
+
+ir_mapping:
+  rows: [AEBODSYS, AEDECOD]
+  columns: _treatment
+  cells: [N, PCT]
+  cell_format: "{N} ({PCT}%)"
+  row_indent:
+    AEBODSYS: 0
+    AEDECOD: 1
+
+render:
+  engine: re_rtf_table
+  title_template: "Table {output_id}: Summary of Adverse Events by System Organ Class and Preferred Term - {population_label}"
+  footnotes:
+    - "Subjects are counted once per SOC and once per PT within each SOC."
+    - "Percentages are based on the number of subjects in each treatment group."
+  column_widths: [4.0, 1.5, 1.5, 1.5, 1.5]
+
+validation:
+  required_datasets: [ADAE, ADSL]
+  required_variables:
+    ADAE: [USUBJID, AEBODSYS, AEDECOD, TRTA]
+    ADSL: [USUBJID, SAFFL, TRTA]
+  ir_reconciliation: true

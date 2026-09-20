@@ -1,0 +1,22 @@
+# PUB-AE-BY-SOC: Table 14-4.02 AE Summary by System Organ Class and Preferred Term
+# CDISCPilot01 Public Benchmark — Phase E
+# Population: Safety (N=254)
+
+report_type: ae_summary_by_soc
+title: "Table 14-4.02 Summary of Adverse Events by System Organ Class and Preferred Term"
+subtitle: "Safety Analysis Set"
+
+parameters:
+  population: safety
+  population_flag_var: SAFFL
+  ae_dataset: adam.adae
+  source_dataset: adam.adae
+  subject_dataset: adam.adsl
+  treatment_var: TRT01A
+  treatment_code_var: TRT01AN
+  group_vars: AEBODSYS AEDECOD
+  include_total: true
+  sort_order: frequency_descending
+  observation_where: "SAFFL='Y' and TRTEMFL='Y'"
+  page_orientation: L
+  font_size: 8

@@ -1,0 +1,6 @@
+report_id,element_type,element_id,label,order,alignment,width
+PUB-EFFICACY,TITLE,TITLE_1,Table 14-3.01 Primary Endpoint Analysis: ADAS Cog (11) - Change from Baseline to Week 24 - LOCF - Efficacy Analysis Set,1,,
+PUB-EFFICACY,COLUMN_HEADER,LABEL,Parameter,10,left,6
+PUB-EFFICACY,COLUMN_HEADER,Placebo_n,Placebo,21,center,
+PUB-EFFICACY,COLUMN_HEADER,Xanomeline_High_Dose_n,Xanomeline High Dose,22,center,
+PUB-EFFICACY,COLUMN_HEADER,Xanomeline_Low_Dose_n,Xanomeline Low Dose,23,center,

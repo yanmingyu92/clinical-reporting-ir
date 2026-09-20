@@ -1,0 +1,270 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yanmingyu92/clinical-reporting-ir/tree/main/schema/study_config.schema.json",
+  "title": "Modernized Framework Study Configuration",
+  "description": "Schema for the split study configuration. Each section file is validated independently. The orchestrator assembles them into a unified configuration.",
+  "type": "object",
+  "properties": {
+    "study_id": {
+      "type": "string",
+      "description": "Unique study identifier (e.g., PROT008-SR1)"
+    },
+    "protocol": {
+      "type": "string",
+      "description": "Protocol identifier"
+    },
+    "analysis": {
+      "type": "string",
+      "description": "Analysis identifier (e.g., SR1, IR1)"
+    },
+    "sponsor": {
+      "type": "string",
+      "description": "Sponsor name"
+    },
+    "therapeutic_area": {
+      "type": "string",
+      "description": "Therapeutic area"
+    },
+    "indication": {
+      "type": "string",
+      "description": "Disease indication"
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "Phase I",
+        "Phase II",
+        "Phase III",
+        "Phase IV",
+        "Phase I/II",
+        "Phase II/III"
+      ],
+      "description": "Study phase"
+    },
+    "title": {
+      "type": "string",
+      "description": "Study title"
+    },
+    "analysis_type": {
+      "type": "string",
+      "enum": [
+        "primary",
+        "interim",
+        "final",
+        "ad_hoc"
+      ]
+    },
+    "sap_version": {
+      "type": "string"
+    },
+    "framework_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "populations": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "flag_var",
+          "flag_value",
+          "description"
+        ],
+        "properties": {
+          "flag_var": {
+            "type": "string"
+          },
+          "flag_value": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string",
+            "description": "Display label for the population"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "treatment_var": {
+      "type": "string",
+      "description": "Treatment variable name (e.g., TRTA)"
+    },
+    "treatment_arms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "label",
+          "order"
+        ],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Treatment code value"
+          },
+          "label": {
+            "type": "string",
+            "description": "Display label"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Display order"
+          },
+          "n_label_template": {
+            "type": "string",
+            "description": "Template for N-label (e.g., 'Drug 10 mg (N={n})')"
+          },
+          "is_total": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether this is a total column"
+          }
+        }
+      }
+    },
+    "data_sources": {
+      "type": "object",
+      "properties": {
+        "adam": {
+          "type": "object",
+          "required": [
+            "path",
+            "datasets"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "datasets": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "default": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "sdtm": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "datasets": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "name"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "default": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "output_settings": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": [
+            "rtf",
+            "pdf",
+            "html",
+            "json"
+          ]
+        },
+        "page": {
+          "type": "object",
+          "properties": {
+            "orientation": {
+              "type": "string",
+              "enum": [
+                "landscape",
+                "portrait"
+              ]
+            },
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          }
+        },
+        "margins": {
+          "type": "object",
+          "properties": {
+            "top": {
+              "type": "number"
+            },
+            "bottom": {
+              "type": "number"
+            },
+            "left": {
+              "type": "number"
+            },
+            "right": {
+              "type": "number"
+            }
+          }
+        },
+        "font": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "size": {
+              "type": "integer",
+              "minimum": 6,
+              "maximum": 14
+            }
+          }
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "footnotes": {
+          "type": "object",
+          "properties": {
+            "auto_population": {
+              "type": "boolean"
+            },
+            "auto_date": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

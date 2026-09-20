@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yanmingyu92/clinical-reporting-ir/tree/main/schema/ir_schema.schema.json",
+  "title": "Modernized Framework Intermediate Representation (IR) Schema",
+  "description": "Schema for the IR two-dataset format: ir_cells (data values) and ir_structure (layout metadata). The IR is format-agnostic and renderable to RTF, PDF, HTML, and JSON.",
+  "type": "object",
+  "properties": {
+    "ir_cells": {
+      "type": "object",
+      "description": "Schema for the ir_cells dataset (one row per cell in the output)",
+      "required": [
+        "variables"
+      ],
+      "properties": {
+        "variables": {
+          "type": "object",
+          "properties": {
+            "report_id": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Output identifier (e.g., T-14.1.1)",
+                "sas_type": "char",
+                "sas_length": 40
+              }
+            },
+            "row_id": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Row identifier (composite of group variable values)",
+                "sas_type": "char",
+                "sas_length": 200
+              }
+            },
+            "col_id": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Column identifier (treatment arm or statistic column)",
+                "sas_type": "char",
+                "sas_length": 100
+              }
+            },
+            "cell_type": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Cell data type",
+                "sas_type": "char",
+                "sas_length": 20,
+                "allowed_values": [
+                  "integer",
+                  "decimal",
+                  "pvalue",
+                  "percentage",
+                  "text",
+                  "header",
+                  "label",
+                  "footnote",
+                  "empty"
+                ]
+              }
+            },
+            "cell_raw_value": {
+              "type": "object",
+              "properties": {
+                "type": "number",
+                "description": "Raw numeric value (null for text cells)",
+                "sas_type": "num"
+              }
+            },
+            "cell_formatted": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Display-formatted string",
+                "sas_type": "char",
+                "sas_length": 200
+              }
+            },
+            "cell_format_code": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Format code for rendering (e.g., '8.1', '5.3')",
+                "sas_type": "char",
+                "sas_length": 20
+              }
+            },
+            "group_level": {
+              "type": "object",
+              "properties": {
+                "type": "integer",
+                "description": "Hierarchical group level (0=top, 1=sub, etc.)",
+                "sas_type": "num"
+              }
+            },
+            "indent_level": {
+              "type": "object",
+              "properties": {
+                "type": "integer",
+                "description": "Visual indent level for display",
+                "sas_type": "num"
+              }
+            },
+            "spanning": {
+              "type": "object",
+              "properties": {
+                "type": "boolean",
+                "description": "Whether this cell spans all columns (header/group row)",
+                "sas_type": "num",
+                "sas_note": "0=no, 1=yes"
+              }
+            },
+            "annotation": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Optional annotation (superscript, footnote reference)",
+                "sas_type": "char",
+                "sas_length": 50
+              }
+            },
+            "sort_order": {
+              "type": "object",
+              "properties": {
+                "type": "integer",
+                "description": "Row display order within the report",
+                "sas_type": "num"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ir_structure": {
+      "type": "object",
+      "description": "Schema for the ir_structure dataset (layout metadata)",
+      "required": [
+        "variables"
+      ],
+      "properties": {
+        "variables": {
+          "type": "object",
+          "properties": {
+            "report_id": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "sas_type": "char",
+                "sas_length": 40
+              }
+            },
+            "element_type": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "allowed_values": [
+                  "title",
+                  "column_header",
+                  "column_spanning_header",
+                  "row_header",
+                  "footnote",
+                  "page_header",
+                  "page_footer"
+                ],
+                "sas_type": "char",
+                "sas_length": 30
+              }
+            },
+            "element_id": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "sas_type": "char",
+                "sas_length": 100
+              }
+            },
+            "label": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Display text for the element",
+                "sas_type": "char",
+                "sas_length": 500
+              }
+            },
+            "order": {
+              "type": "object",
+              "properties": {
+                "type": "integer",
+                "description": "Display order",
+                "sas_type": "num"
+              }
+            },
+            "parent_id": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "Parent element ID for hierarchical structures",
+                "sas_type": "char",
+                "sas_length": 100
+              }
+            },
+            "formatting_class": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "description": "CSS-like class for render styling",
+                "sas_type": "char",
+                "sas_length": 50
+              }
+            },
+            "width": {
+              "type": "object",
+              "properties": {
+                "type": "number",
+                "description": "Relative width (for columns)",
+                "sas_type": "num"
+              }
+            },
+            "alignment": {
+              "type": "object",
+              "properties": {
+                "type": "string",
+                "allowed_values": [
+                  "left",
+                  "center",
+                  "right",
+                  "decimal"
+                ],
+                "sas_type": "char",
+                "sas_length": 10
+              }
+            }
+          }
+        }
+      }
+    },
+    "reconciliation": {
+      "type": "object",
+      "description": "IR reconciliation requirements",
+      "properties": {
+        "required": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether reconciliation is required for this report"
+        },
+        "numeric_cell_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "integer",
+            "decimal",
+            "pvalue",
+            "percentage"
+          ],
+          "description": "Cell types that must reconcile against compute output"
+        },
+        "tolerance": {
+          "type": "object",
+          "properties": {
+            "absolute": {
+              "type": "number",
+              "default": 1e-10
+            },
+            "relative": {
+              "type": "number",
+              "default": 1e-08
+            }
+          }
+        }
+      }
+    }
+  }
+}

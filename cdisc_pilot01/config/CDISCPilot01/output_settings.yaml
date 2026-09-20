@@ -1,0 +1,18 @@
+# CDISCPilot01 Output Settings
+
+format: rtf
+orientation: landscape
+font_family: "Courier New"
+font_size: 8
+page_size: letter
+
+header:
+  company: "CDISC"
+  protocol: "CDISCPILOT01"
+  analysis: "PRIMARY"
+
+footer:
+  confidential: ""
+  program_template: "Program: {program_name}"
+  date_template: "Date: {run_date}"
+  page_template: "Page {page} of {total_pages}"

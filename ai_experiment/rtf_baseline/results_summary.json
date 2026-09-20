@@ -1,0 +1,38 @@
+{
+  "experiment": "Controlled IR-versus-RTF comparison (Section 4.2.6, Table 11)",
+  "model": "Claude Opus 4.6",
+  "api_model_id": "claude-opus-4-6",
+  "temperature": 0,
+  "date": "2026-08-11",
+  "framing": "Identical task, model, and prompt across conditions; only the input representation (IR JSON vs RTF-extracted text) varies.",
+  "task1_demographics_numeric_extraction_recall": {
+    "metric": "fraction of 55 pre-registered ground-truth numeric values reproduced in the response (tolerance 0.05)",
+    "ir": {"found": 50, "total": 55, "pct": 90.9},
+    "rtf": {"found": 27, "total": 55, "pct": 49.1},
+    "ground_truth_source": "ai_experiment/inputs/ir_demographics_sample.json (distinct numeric tokens across cell_value and cell_formatted)"
+  },
+  "task2_anomaly_detection_concept_recall": {
+    "metric": "fraction of a pre-registered set of 5 clinical concepts identified in the response",
+    "preregistered_concepts": [
+      "dose-response application-site reactions",
+      "high overall AE burden in the high-dose arm",
+      "diarrhoea non-monotonic anomaly",
+      "SOC/PT internal-consistency",
+      "treatment-arm imbalance"
+    ],
+    "ir": {"found": 5, "total": 5, "source": "original 2026-04-24 demonstration run (experiment_log.md, Experiment 2)"},
+    "rtf": {"found": 4, "total": 5, "source": "responses/task2_rtf_response.txt (2026-08-11)",
+            "concepts_found": [
+              "dose-response application-site reactions",
+              "diarrhoea non-monotonic anomaly",
+              "SOC/PT internal-consistency",
+              "treatment-arm imbalance"
+            ],
+            "concept_missed": "high overall AE burden in the high-dose arm"}
+  },
+  "notes": [
+    "The original 2026-04-24 feasibility demonstration ran the IR condition only, at the API-default temperature.",
+    "Task 2 RTF condition used the AE-by-SOC/PT table (inputs/rtf_ae-by-soc_extracted.txt).",
+    "Verbatim responses are archived under responses/; see SCORING.md for the full worksheet."
+  ]
+}

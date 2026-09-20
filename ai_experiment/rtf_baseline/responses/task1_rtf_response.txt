@@ -1,0 +1,37 @@
+# Demographic Summary for Clinical Study Report
+
+## Overview
+
+The demographics table presents baseline characteristics for three treatment groups: Placebo (N=86), Xanomeline High Dose (N=84), and Xanomeline Low Dose (N=84). The parameters summarized include age, height, weight, body mass index (BMI), years of education, age group distribution, and race.
+
+## Age (years)
+
+The mean age was generally similar across treatment groups. The Placebo group had a mean age of 75.2 years (SD 8.6; median 76.0; range 52–89), the Xanomeline High Dose group had a mean age of 74.4 years (SD 7.9; median 76.0; range 56–88), and the Xanomeline Low Dose group had a mean age of 75.7 years (SD 8.3; median 77.5; range 51–88).
+
+## Height (cm)
+
+Mean height was comparable across groups: 162.6 cm (SD 11.5) in the Placebo group, 165.8 cm (SD 10.1) in the Xanomeline High Dose group, and 163.4 cm (SD 10.4) in the Xanomeline Low Dose group.
+
+## Weight (kg)
+
+Mean weight was 62.8 kg (SD 12.8) in the Placebo group, 70.0 kg (SD 14.7) in the Xanomeline High Dose group, and 67.3 kg (SD 14.1) in the Xanomeline Low Dose group. The Xanomeline High Dose group had a somewhat higher mean weight compared with the other two groups.
+
+## Body Mass Index (kg/m²)
+
+Mean BMI was 23.6 (SD 3.7) in the Placebo group, 25.3 (SD 4.2) in the Xanomeline High Dose group, and 25.1 (SD 4.3) in the Xanomeline Low Dose group, consistent with the weight differences observed.
+
+## Years of Education
+
+Mean years of education were similar across groups: 18.0 years (SD 4.3) for Placebo, 18.5 years (SD 4.2) for Xanomeline High Dose, and 17.9 years (SD 4.2) for Xanomeline Low Dose.
+
+## Age Group Distribution
+
+The majority of subjects across all groups were aged 65–80 years. In the Placebo group, 42 subjects (48.8%) were aged 65–80, 14 (16.3%) were aged <65, and 30 (34.9%) were aged >80. In the Xanomeline High Dose group, 55 subjects (65.5%) were aged 65–80, 11 (13.1%) were aged <65, and 18 (21.4%) were aged >80. In the Xanomeline Low Dose group, 47 subjects (56.0%) were aged 65–80, 8 (9.5%) were aged <65, and 29 (34.5%) were aged >80.
+
+## Race
+
+The study population was predominantly White across all treatment groups: 78 subjects (90.7%) in the Placebo group, 74 (88.1%) in the Xanomeline High Dose group, and 78 (92.9%) in the Xanomeline Low Dose group. Black or African American subjects comprised 8 (9.3%), 9 (10.7%), and 6 (7.1%) of the Placebo, Xanomeline High Dose, and Xanomeline Low Dose groups, respectively. One subject (1.2%) in the Xanomeline High Dose group was American Indian or Alaska Native; no subjects of this race were enrolled in the other two groups.
+
+## Conclusion
+
+Overall, the three treatment groups were generally well balanced with respect to baseline demographic characteristics. The Xanomeline High Dose group had a slightly higher mean weight and BMI compared with the Placebo and Xanomeline Low Dose groups. The study population was predominantly White and elderly, consistent with the target population for this clinical investigation.

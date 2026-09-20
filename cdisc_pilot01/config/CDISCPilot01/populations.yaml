@@ -1,0 +1,21 @@
+# CDISCPilot01 Population Definitions
+# ITT=254, Safety=254, Efficacy=234
+
+populations:
+  safety:
+    flag_var: SAFFL
+    flag_value: "Y"
+    label: "Safety Analysis Set"
+    description: "All randomized subjects who received at least one dose of study drug"
+
+  itt:
+    flag_var: ITTFL
+    flag_value: "Y"
+    label: "Intent-to-Treat Analysis Set"
+    description: "All randomized subjects"
+
+  efficacy:
+    flag_var: EFFFL
+    flag_value: "Y"
+    label: "Efficacy Analysis Set"
+    description: "All ITT subjects with baseline and at least one post-baseline efficacy assessment"

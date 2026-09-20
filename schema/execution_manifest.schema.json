@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yanmingyu92/clinical-reporting-ir/tree/main/schema/execution_manifest.schema.json",
+  "title": "Modernized Framework Execution Manifest",
+  "description": "Immutable provenance record produced by every pipeline execution. Records all inputs, outputs, environment details, reconciliation results, and approval status.",
+  "type": "object",
+  "required": [
+    "execution_id",
+    "timestamp",
+    "user",
+    "framework_version",
+    "framework_lock_hash",
+    "study_config_hash",
+    "execution_plan_hash",
+    "environment",
+    "inputs",
+    "generated_sas",
+    "outputs",
+    "ir_reconciliation",
+    "audit_trail_hash",
+    "approvals"
+  ],
+  "properties": {
+    "execution_id": {
+      "type": "string",
+      "description": "Unique execution identifier, format: {STUDY}-{DATE}-{SEQ}",
+      "pattern": "^[A-Z0-9-]+-\\d{4}-\\d{2}-\\d{2}-\\d{3}$",
+      "examples": [
+        "PROT008-SR1-2026-04-12-001"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp of execution start"
+    },
+    "user": {
+      "type": "string",
+      "description": "AD/SSO user ID of the person who initiated execution"
+    },
+    "framework_version": {
+      "type": "string",
+      "description": "Semantic version of the modernized framework",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "framework_lock_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of framework.lock file",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "study_config_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of the assembled study configuration",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "execution_plan_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of the approved execution plan",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "environment": {
+      "type": "object",
+      "description": "Runtime environment details for reproducibility",
+      "required": [
+        "sas_version",
+        "python_version",
+        "os",
+        "hostname"
+      ],
+      "properties": {
+        "sas_version": {
+          "type": "string",
+          "examples": [
+            "9.4M8"
+          ]
+        },
+        "python_version": {
+          "type": "string",
+          "examples": [
+            "3.10.12"
+          ]
+        },
+        "os": {
+          "type": "string",
+          "examples": [
+            "RHEL 8.6"
+          ]
+        },
+        "hostname": {
+          "type": "string",
+          "examples": [
+            "sas-compute-01"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "inputs": {
+      "type": "array",
+      "description": "All input datasets consumed by the pipeline",
+      "items": {
+        "type": "object",
+        "required": [
+          "dataset",
+          "path",
+          "hash",
+          "nobs"
+        ],
+        "properties": {
+          "dataset": {
+            "type": "string",
+            "description": "Dataset name (e.g., ADAE, ADSL)"
+          },
+          "path": {
+            "type": "string",
+            "description": "Resolved physical path to the dataset"
+          },
+          "hash": {
+            "type": "string",
+            "description": "SHA-256 hash of the dataset file",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "nobs": {
+            "type": "integer",
+            "description": "Number of observations in the dataset",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "generated_sas": {
+      "type": "array",
+      "description": "All generated SAS program files",
+      "items": {
+        "type": "object",
+        "required": [
+          "file",
+          "hash",
+          "archived"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Relative path to the generated SAS file"
+          },
+          "hash": {
+            "type": "string",
+            "description": "SHA-256 hash of the generated file",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "archived": {
+            "type": "boolean",
+            "description": "Whether the file has been archived to artifact storage"
+          }
+        }
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "description": "All final output files produced",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "ir_cells_hash",
+          "ir_structure_hash"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Output identifier (e.g., T-14.1.1)"
+          },
+          "ir_cells_hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "ir_structure_hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "rtf_hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "pdf_hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "html_hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          },
+          "json_hash": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "ir_reconciliation": {
+      "type": "array",
+      "description": "IR reconciliation results per report",
+      "items": {
+        "type": "object",
+        "required": [
+          "report",
+          "cells_checked",
+          "cells_matched",
+          "status"
+        ],
+        "properties": {
+          "report": {
+            "type": "string",
+            "description": "Report identifier"
+          },
+          "cells_checked": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "cells_matched": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PASS",
+              "FAIL"
+            ]
+          },
+          "mismatches": {
+            "type": "array",
+            "description": "Details of mismatched cells (only present when status is FAIL)",
+            "items": {
+              "type": "object",
+              "properties": {
+                "row_id": {
+                  "type": "string"
+                },
+                "col_id": {
+                  "type": "string"
+                },
+                "expected": {
+                  "type": "number"
+                },
+                "actual": {
+                  "type": "number"
+                },
+                "difference": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "audit_trail_hash": {
+      "type": "string",
+      "description": "SHA-256 hash of the complete audit trail database at execution end",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "approvals": {
+      "type": "object",
+      "description": "Electronic signature status for each review gate",
+      "properties": {
+        "gate_1": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "user",
+                "timestamp",
+                "signature_meaning",
+                "artifact_hash"
+              ],
+              "properties": {
+                "user": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "signature_meaning": {
+                  "type": "string"
+                },
+                "artifact_hash": {
+                  "type": "string",
+                  "pattern": "^sha256:[a-f0-9]{64}$"
+                }
+              }
+            },
+            {
+              "type": "string",
+              "const": "pending"
+            }
+          ]
+        },
+        "gate_2": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "user",
+                "timestamp",
+                "signature_meaning",
+                "artifact_hash"
+              ],
+              "properties": {
+                "user": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "signature_meaning": {
+                  "type": "string"
+                },
+                "artifact_hash": {
+                  "type": "string",
+                  "pattern": "^sha256:[a-f0-9]{64}$"
+                }
+              }
+            },
+            {
+              "type": "string",
+              "const": "pending"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

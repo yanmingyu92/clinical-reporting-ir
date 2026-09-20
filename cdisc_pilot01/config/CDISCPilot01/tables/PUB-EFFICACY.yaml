@@ -1,0 +1,26 @@
+# PUB-EFFICACY: Table 14-3.01 Primary Endpoint ADAS-Cog(11) Change from Baseline
+# CDISCPilot01 Public Benchmark — Phase E
+# Golden reference: cdisc_pilot01/golden_outputs/PUB-EFFICACY.rtf
+# Population: Efficacy (N=234)
+# Endpoint: ADAS-Cog(11) ACTOT, Change from Baseline to Week 24, LOCF
+
+report_type: continuous_endpoint
+title: "Table 14-3.01 Primary Endpoint Analysis: ADAS Cog (11) - Change from Baseline to Week 24 - LOCF"
+subtitle: "Efficacy Analysis Set"
+
+parameters:
+  population: efficacy
+  population_flag_var: EFFFL
+  source_dataset: adam.adadas
+  subject_dataset: adam.adsl
+  treatment_var: TRTP
+  treatment_code_var: TRTPN
+  endpoint_paramcd: ACTOT
+  analysis_var: CHG
+  analysis_visit: "Week 24"
+  covariates: [BASE, SITEGR1]
+  class_vars: TRTP SITEGR1
+  model: ancova
+  include_total: false
+  page_orientation: L
+  font_size: 8

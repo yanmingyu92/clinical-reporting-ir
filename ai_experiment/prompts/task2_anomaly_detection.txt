@@ -1,0 +1,9 @@
+Task: Identify data quality issues, unusual patterns, or clinically meaningful findings from the AE summary IR.
+
+Full prompt sent to LLM:
+
+Given the following JSON representation of an adverse event summary table from a clinical trial, identify any potential data quality issues, unusual patterns, or findings that warrant further investigation. The JSON uses a typed-cell IR schema. Focus on: (1) treatment-arm imbalances, (2) dose-response relationships, (3) unexpectedly high or low frequencies, and (4) any internal consistency issues.
+
+Input file: inputs/ir_ae_summary_sample.json (80 cells, T-14.3.1, top 5 SOCs)
+
+Model: Claude Opus 4.6 (temperature default). Recorded verbatim in experiment_log.md, Experiment 2.

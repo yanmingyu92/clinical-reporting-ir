@@ -1,0 +1,274 @@
+# Bridge-Map Sample (synthetic, anonymized)
+# ----------------------------------------------------------------------------
+# Illustrates the structure of the legacy bridge map described in Section
+# 3.3.1 of the manuscript. Each entry binds one legacy SAS macro entry point to its
+# native counterpart and declares the parameter-name mapping used by the
+# parity harness's LegacyDriver to build a driver program.
+#
+# All macro names, file names, and identifiers below are SYNTHETIC and generic
+# (e.g. %legacy_ae_summary). No organization-specific macro names, internal
+# paths, or proprietary parameter names appear here. The entry structure
+# (fields, layering, dependency list) mirrors the production bridge map.
+#
+# Field reference:
+#   report_type_id        Unique key the harness/native side uses for the report.
+#   legacy_macro          Autocall macro invocation (with leading %).
+#   legacy_autocall_path  SASAUTOS search location for the macro.
+#   legacy_file           Source file that defines the macro.
+#   legacy_location       Logical library area (root | adam | submacros).
+#   layer                 Architecture layer (data_layer | utility | compute | report).
+#   report_type           Report family, where applicable (else null).
+#   native_target         Identifier of the native pipeline component.
+#   parameter_mapping     canonical (native) parameter name -> legacy macro keyword.
+#   dependencies          Other legacy macros invoked internally (advisory).
+#   post_calls            Optional follow-up macro invocations (multi-section reports).
+#   status                bridge_auto | bridge_curated | retired.
+#   notes                 Free text.
+
+schema_version: 1
+generated_on: "2026-04-22"
+generator: curated synthetic sample for public release
+total_components: 7
+
+legacy_bridges:
+
+  # --- Continuous-summary macro (demographics-style) -------------------------
+  - report_type_id: PUB-DEMOGRAPHICS
+    legacy_macro: "%legacy_descriptive_stats"
+    legacy_autocall_path: ./
+    legacy_file: legacy_descriptive_stats.sas
+    legacy_location: root
+    layer: report
+    report_type: demographics
+    native_target: tlf_descriptive_stats
+    parameter_mapping:
+      population_from: population_from
+      population_where: population_where
+      analysis_var: analysis_var
+      group_var: group_var
+      therapy_cd_var: therapy_cd_var
+      therapy_des_var: therapy_des_var
+      decimal_places: decimal_places
+      output_fileref: output_fileref
+      title_text_1: title_text_1
+      subtitle: subtitle
+      end_notes: end_notes
+      data_source_txt: data_source_txt
+      debug: debug
+    dependencies:
+      - rtftable
+      - symdel
+    status: bridge_curated
+    notes: >-
+      Continuous-summary table (N, Mean, SD, Median, Min, Max) per treatment
+      arm. Pairs with sas_stubs/legacy_descriptive_stats.sas. Used for the
+      PUB-DEMOGRAPHICS entry of the CDISCPilot01 public track.
+
+  # --- Simple frequency-count macro ------------------------------------------
+  - report_type_id: PUB-AE-OVERVIEW
+    legacy_macro: "%legacy_frequency_count"
+    legacy_autocall_path: ./
+    legacy_file: legacy_frequency_count.sas
+    legacy_location: root
+    layer: report
+    report_type: safety
+    native_target: tlf_frequency_count
+    parameter_mapping:
+      population_from: population_from
+      population_where: population_where
+      observation_from: observation_from
+      observation_where: observation_where
+      count_var: count_var
+      therapy_cd_var: therapy_cd_var
+      therapy_des_var: therapy_des_var
+      percent_incidence: percent_incidence
+      output_fileref: output_fileref
+      title_text_1: title_text_1
+      subtitle: subtitle
+      end_notes: end_notes
+      data_source_txt: data_source_txt
+      debug: debug
+    dependencies:
+      - count
+      - rtftable
+      - symdel
+    status: bridge_curated
+    notes: >-
+      Simple frequency-count macro: subjects with event, n and (%) per
+      treatment arm. Pairs with sas_stubs/legacy_frequency_count.sas.
+
+  # --- AE-SUMMARY-style entry (Section 4.2.3 of the manuscript) ---------------
+  - report_type_id: legacy_ae_summary_report
+    legacy_macro: "%legacy_ae_summary"
+    legacy_autocall_path: ./
+    legacy_file: legacy_ae_summary.sas
+    legacy_location: root
+    layer: report
+    report_type: safety
+    native_target: tlf_ae_summary
+    parameter_mapping:
+      population_from: population_from
+      population_where: population_where
+      observation_from: observation_from
+      observation_where: observation_where
+      ae_term_selection: ae_term_selection
+      grp_term_selection: grp_term_selection
+      therapy_cd_var: therapy_cd_var
+      therapy_des_var: therapy_des_var
+      aetrt_cd_var: aetrt_cd_var
+      aetrt_des_var: aetrt_des_var
+      display_totals: display_totals
+      display_term_row: display_term_row
+      percent_incidence: percent_incidence
+      decimal_places_percent: decimal_places_percent
+      create_output_dataset: create_output_dataset
+      output_fileref: output_fileref
+      rel_col_widths: rel_col_widths
+      page_orientation: page_orientation
+      font_size: font_size
+      title_text_1: title_text_1
+      title_text_2: title_text_2
+      subtitle: subtitle
+      end_notes: end_notes
+      data_source_txt: data_source_txt
+      debug: debug
+    dependencies:
+      - count
+      - count_cat
+      - rtftable
+      - symdel
+    status: bridge_curated
+    notes: >-
+      AE-summary-style entry: incidence of adverse events by group term
+      (e.g. system organ class) and preferred term, with any-AE and
+      drug-related summary rows. Pairs with sas_stubs/legacy_ae_summary.sas.
+
+  # --- Multi-section report (driver macro + render companions) ----------------
+  - report_type_id: legacy_disposition_multi
+    legacy_macro: "%legacy_disposition_report"
+    legacy_autocall_path: ./
+    legacy_file: legacy_disposition_report.sas
+    legacy_location: root
+    layer: report
+    report_type: disposition
+    native_target: tlf_disposition
+    parameter_mapping:
+      population_from: population_from
+      population_where: population_where
+      therapy_cd_var: therapy_cd_var
+      therapy_des_var: therapy_des_var
+      output_fileref: output_fileref
+      page_orientation: page_orientation
+      title_text_1: title_text_1
+      subtitle: subtitle
+      end_notes: end_notes
+      data_source_txt: data_source_txt
+      debug: debug
+    post_calls:
+      - legacy_macro: "%legacy_render_section"
+        parameter_mapping:
+          section_id: section_id
+        defaults:
+          section_id: "enrolled"
+      - legacy_macro: "%legacy_render_section"
+        parameter_mapping:
+          section_id: section_id
+        defaults:
+          section_id: "discontinued"
+    dependencies:
+      - count
+      - rtftable
+      - symdel
+    status: bridge_curated
+    notes: >-
+      Multi-section report: the driver macro computes the disposition counts
+      and the two post_calls render the "enrolled" and "discontinued"
+      sections into the same RTF destination. Demonstrates the post_calls
+      mechanism the harness replays after the primary macro invocation.
+
+  # --- Continuous-summary utility (vital signs / labs style) ------------------
+  - report_type_id: legacy_vitals_summary
+    legacy_macro: "%legacy_vitals_summary"
+    legacy_autocall_path: ./
+    legacy_file: legacy_vitals_summary.sas
+    legacy_location: root
+    layer: report
+    report_type: safety
+    native_target: tlf_vitals_summary
+    parameter_mapping:
+      population_from: population_from
+      population_where: population_where
+      observation_from: observation_from
+      observation_where: observation_where
+      analysis_var: analysis_var
+      visit_var: visit_var
+      therapy_cd_var: therapy_cd_var
+      therapy_des_var: therapy_des_var
+      decimal_places: decimal_places
+      output_fileref: output_fileref
+      title_text_1: title_text_1
+      subtitle: subtitle
+      end_notes: end_notes
+      data_source_txt: data_source_txt
+      debug: debug
+    dependencies:
+      - rtftable
+      - symdel
+    status: bridge_curated
+    notes: >-
+      Continuous summary over post-baseline visits (observed values and
+      change from baseline), the vital-signs/laboratory analogue of the
+      demographics summary entry.
+
+  # --- Kaplan-Meier survival figure -------------------------------------------
+  - report_type_id: PUB-KM-TTDE
+    legacy_macro: "%legacy_km_plot"
+    legacy_autocall_path: ./
+    legacy_file: legacy_km_plot.sas
+    legacy_location: root
+    layer: report
+    report_type: graphics
+    native_target: fig_km_plot
+    parameter_mapping:
+      population_from: population_from
+      population_where: population_where
+      time_var: time_var
+      censor_var: censor_var
+      therapy_cd_var: therapy_cd_var
+      therapy_des_var: therapy_des_var
+      display_risktable: display_risktable
+      output_fileref: output_fileref
+      title_text_1: title_text_1
+      subtitle: subtitle
+      end_notes: end_notes
+      data_source_txt: data_source_txt
+      debug: debug
+    dependencies:
+      - rtfsymbl
+      - symdel
+    status: bridge_curated
+    notes: >-
+      Kaplan-Meier time-to-event figure with at-risk table. Used for the
+      PUB-KM-TTDE entry of the CDISCPilot01 public track.
+
+  # --- Data-layer utility (non-report component) ------------------------------
+  - report_type_id: legacy_add_derived_var
+    legacy_macro: "%legacy_add_derived_var"
+    legacy_autocall_path: ./submacros
+    legacy_file: submacros/legacy_add_derived_var.sas
+    legacy_location: submacros
+    layer: data_layer
+    report_type: null
+    native_target: dl_add_derived_var
+    parameter_mapping:
+      input_dataset: input_dataset
+      output_dataset: output_dataset
+      derive_var: derive_var
+      derive_expr: derive_expr
+      debug: debug
+    dependencies: []
+    status: bridge_curated
+    notes: >-
+      Non-report data-layer component: adds one derived variable to an
+      analysis dataset. Included to show that the bridge map covers utility
+      and data-layer components, not only report macros.

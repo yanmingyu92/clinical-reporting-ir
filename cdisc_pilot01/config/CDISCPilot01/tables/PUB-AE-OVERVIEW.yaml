@@ -1,0 +1,22 @@
+# PUB-AE-OVERVIEW: Table 14-4.01 Overview of Adverse Events
+# CDISCPilot01 Public Benchmark — Phase E
+# Population: Safety (N=254)
+
+report_type: ae_overview_summary
+title: "Table 14-4.01 Overview of Adverse Events"
+subtitle: "Safety Analysis Set"
+
+parameters:
+  population: safety
+  population_flag_var: SAFFL
+  ae_dataset: adam.adae
+  source_dataset: adam.adae
+  subject_dataset: adam.adsl
+  treatment_var: TRT01A
+  treatment_code_var: TRT01AN
+  group_vars: ""
+  include_total: true
+  study_type: drug
+  observation_where: "SAFFL='Y'"
+  page_orientation: L
+  font_size: 8

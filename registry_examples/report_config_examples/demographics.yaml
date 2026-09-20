@@ -1,0 +1,67 @@
+# Demographics and Baseline Characteristics
+# Report Type: Summary of demographic and baseline variables
+# Replaces (generic legacy equivalents): legacy_baseline_characteristics.sas, legacy_age_gender.sas
+
+name: demographics
+description: "Demographics and baseline characteristics table with continuous (descriptive stats) and categorical (frequency counts) variables by treatment arm."
+category: demographics
+version: "1.0.0"
+
+pipeline:
+  data:
+    - dl_load_dataset       # Load ADSL
+    - dl_filter_population  # Filter to analysis population
+  compute:
+    - cl_descriptive_stats  # For continuous variables (age, weight, BMI, etc.)
+    - cl_frequency_count    # For categorical variables (sex, race, ethnicity, etc.)
+  render: re_rtf_table
+
+parameters:
+  population:
+    type: string
+    required: true
+    default: itt
+    description: "Population for analysis"
+  subject_dataset:
+    type: dataset_ref
+    required: true
+    default: adam.adsl
+    description: "Source subject-level dataset"
+  continuous_vars:
+    type: list
+    required: true
+    default: [AGE, WEIGHTBL, HEIGHTBL, BMIBL]
+    description: "Continuous variables for descriptive statistics"
+  categorical_vars:
+    type: list
+    required: true
+    default: [SEX, RACE, ETHNIC]
+    description: "Categorical variables for frequency counts"
+  stats_list:
+    type: list
+    required: false
+    default: [N, MEAN, SD, MEDIAN, MIN, MAX]
+    description: "Statistics for continuous variables"
+
+ir_mapping:
+  rows: [_variable_label, _category]
+  columns: _treatment
+  cells: [STAT_VALUE]
+  cell_format: "{STAT_VALUE}"
+  row_indent:
+    _variable_label: 0
+    _category: 1
+
+render:
+  engine: re_rtf_table
+  title_template: "Table {output_id}: Demographics and Baseline Characteristics - {population_label}"
+  footnotes:
+    - "Continuous variables: N, Mean, SD, Median, Min, Max."
+    - "Categorical variables: n (%)."
+  column_widths: [4.0, 1.5, 1.5, 1.5, 1.5]
+
+validation:
+  required_datasets: [ADSL]
+  required_variables:
+    ADSL: [USUBJID, TRTA, AGE, SEX, RACE]
+  ir_reconciliation: true

@@ -1,0 +1,2 @@
+Table 14.2.2: Time-to-Event Analysis of Overall Survival
+A Kaplan-Meier estimate of the survival function will be computed for each treatment group. The hazard ratio and 95% confidence interval will be estimated using a Cox proportional hazards model with treatment as the only covariate. The log-rank test will be used to compare survival distributions between treatment groups. Censoring will be based on the CNSR variable in the ADTTE dataset. Time to event will be measured in days using the AVAL variable.

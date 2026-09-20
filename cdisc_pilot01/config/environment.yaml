@@ -1,0 +1,30 @@
+# CDISCPilot01 public-benchmark environment configuration (sanitized sample)
+# ----------------------------------------------------------------------------
+# Structure conforms to schema/environment.schema.json. All paths are
+# repository-relative; no deployment-specific or internal values are present.
+
+environment:
+  name: development
+  tier: dev
+
+  storage:
+    provider: local
+    config:
+      root: cdisc_pilot01/parity_output
+      adam_path: cdisc_pilot01/sdtm_datasets
+      output_root: cdisc_pilot01/parity_output
+      golden_rtf_root: cdisc_pilot01/golden_outputs
+
+  sas_compute:
+    provider: local_batch
+    config:
+      sas_executable: sas
+      timeout_seconds: 3600
+
+  artifact_store:
+    provider: local
+    config:
+      root: cdisc_pilot01/parity_output/artifacts
+
+  audit:
+    enabled: false

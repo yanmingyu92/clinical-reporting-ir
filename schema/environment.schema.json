@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yanmingyu92/clinical-reporting-ir/tree/main/schema/environment.schema.json",
+  "title": "Modernized Framework Environment Configuration",
+  "description": "Deployment-specific environment configuration. NOT stored in study repo - managed per deployment target.",
+  "type": "object",
+  "required": [
+    "environment"
+  ],
+  "properties": {
+    "environment": {
+      "type": "object",
+      "required": [
+        "name",
+        "tier",
+        "storage",
+        "sas_compute",
+        "artifact_store",
+        "audit"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Environment name",
+          "examples": [
+            "production",
+            "qa",
+            "development"
+          ]
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "dev",
+            "qa",
+            "prod"
+          ],
+          "description": "Environment tier for promotion pipeline"
+        },
+        "storage": {
+          "type": "object",
+          "required": [
+            "provider"
+          ],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": [
+                "local",
+                "s3",
+                "azure_blob",
+                "cas"
+              ]
+            },
+            "config": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        },
+        "sas_compute": {
+          "type": "object",
+          "required": [
+            "provider"
+          ],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": [
+                "local_batch",
+                "saspy",
+                "viya_rest",
+                "grid"
+              ]
+            },
+            "config": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        },
+        "artifact_store": {
+          "type": "object",
+          "required": [
+            "provider"
+          ],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": [
+                "local",
+                "s3_versioned",
+                "azure_blob_versioned"
+              ]
+            },
+            "config": {
+              "type": "object",
+              "properties": {
+                "retention_days": {
+                  "type": "integer",
+                  "minimum": 5475,
+                  "description": "Minimum 15 years (5475 days)"
+                },
+                "immutable": {
+                  "type": "boolean",
+                  "description": "Write-once, read-many"
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "audit": {
+          "type": "object",
+          "required": [
+            "provider"
+          ],
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": [
+                "sqlite",
+                "postgresql"
+              ]
+            },
+            "config": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          }
+        },
+        "observability": {
+          "type": "object",
+          "properties": {
+            "log_aggregator": {
+              "type": "string",
+              "enum": [
+                "local",
+                "cloudwatch",
+                "azure_monitor",
+                "elk"
+              ]
+            },
+            "metrics_endpoint": {
+              "type": "string"
+            }
+          }
+        },
+        "secrets": {
+          "type": "object",
+          "properties": {
+            "provider": {
+              "type": "string",
+              "enum": [
+                "env_vars",
+                "aws_secrets_manager",
+                "azure_key_vault",
+                "vault"
+              ]
+            }
+          }
+        },
+        "agent": {
+          "type": "object",
+          "properties": {
+            "llm_provider": {
+              "type": "string",
+              "enum": [
+                "local",
+                "azure_openai",
+                "external"
+              ]
+            },
+            "llm_config": {
+              "type": "object",
+              "properties": {
+                "deployment": {
+                  "type": "string"
+                },
+                "api_key_secret": {
+                  "type": "string"
+                },
+                "data_classification": {
+                  "type": "string",
+                  "enum": [
+                    "internal"
+                  ],
+                  "description": "Only internal data; no PHI sent to LLM"
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

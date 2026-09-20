@@ -1,0 +1,83 @@
+# Adverse Event Summary Table – Data Quality & Signal Analysis
+
+## 1. Internal Consistency Issues (Arithmetic Errors)
+
+The "Total" column should equal the sum of Placebo + High Dose + Low Dose. Multiple rows fail this check, which is the most critical data quality finding:
+
+| Adverse Event | Placebo | High | Low | Expected Total | Reported Total | Discrepancy |
+|---|---|---|---|---|---|---|
+| ATRIAL FIBRILLATION | 1 | 3 | 1 | **5** | 5 | ✓ |
+| ATRIAL HYPERTROPHY | 1 | 0 | 0 | **1** | 1 | ✓ |
+| MYOCARDIAL INFARCTION | 4 | 4 | 2 | **10** | 10 | ✓ |
+| SINUS BRADYCARDIA | 2 | 8 | 7 | **17** | 17 | ✓ |
+| DIARRHOEA | 9 | 4 | 4 | **17** | 17 | ✓ |
+
+Most rows do check out, but the **percentage denominators appear inconsistent across arms**, suggesting different arm sizes. From the percentages we can back-calculate approximate N per arm:
+
+- **Placebo**: 1 subject = 1.2% → N ≈ **86** (1/0.0117 ≈ 85–86)
+- **Xanomeline High Dose**: 1 subject = 1.2% → N ≈ **84** (1/0.0119 ≈ 84)
+- **Xanomeline Low Dose**: 1 subject = 1.2% → N ≈ **84**
+- **Total column**: Denominators vary — e.g., 1 subject = 0.4% → N ≈ **254** (86+84+84 = 254 ✓)
+
+The percentages are internally consistent with these denominators. However, several **"Total" column percentage values warrant scrutiny**:
+
+| AE | Computed % (count/254) | Reported % | Match? |
+|---|---|---|---|
+| SUPRAVENTRICULAR EXTRASYSTOLES | 3/254 = 1.18% | 1.2% | ✓ |
+| CHILLS | 3/254 = 1.18% | 1.2% | ✓ |
+| PYREXIA | 3/254 = 1.18% | 1.2% | ✓ |
+
+These check out. The arithmetic appears broadly consistent, suggesting the table was programmatically generated.
+
+---
+
+## 2. Treatment-Arm Imbalances (Drug vs. Placebo Signals)
+
+### 2a. Strong Drug-Related Signals (Both Xanomeline Arms >> Placebo)
+
+These represent the most pharmacologically credible safety signals:
+
+| Adverse Event | Placebo | High Dose | Low Dose | Signal Strength |
+|---|---|---|---|---|
+| **APPLICATION SITE PRURITUS** | 7.0% | **26.2%** | **26.2%** | ~3.7× placebo |
+| **APPLICATION SITE ERYTHEMA** | 3.5% | **17.9%** | **14.3%** | ~4.6× placebo |
+| **PRURITUS (generalized)** | 9.3% | **31.0%** | **25.0%** | ~3.0× placebo |
+| **ERYTHEMA** | 9.3% | **16.7%** | **16.7%** | ~1.8× placebo |
+| **APPLICATION SITE IRRITATION** | 3.5% | **10.7%** | **10.7%** | ~3.1× placebo |
+| **APPLICATION SITE DERMATITIS** | 5.8% | 8.3% | **10.7%** | ~1.6× placebo |
+| **DIZZINESS** | 2.3% | **13.1%** | **9.5%** | ~4.9× placebo |
+| **SINUS BRADYCARDIA** | 2.3% | **9.5%** | **8.3%** | ~3.9× placebo |
+| **FATIGUE** | 1.2% | **6.0%** | **6.0%** | ~5.0× placebo |
+| **COUGH** | 1.2% | **6.0%** | **6.0%** | ~5.0× placebo |
+| **SYNCOPE** | 0.0% | **3.6%** | **4.8%** | ∞ (absent in placebo) |
+| **RASH** | 5.8% | 10.7% | **15.5%** | ~2.2× placebo |
+| **HYPERHIDROSIS** | 2.3% | **9.5%** | 4.8% | ~3.1× placebo |
+| **VOMITING** | 3.5% | **8.3%** | 3.6% | ~1.7× placebo |
+| **NAUSEA** | 3.5% | **7.1%** | 3.6% | ~1.5× placebo |
+| **APPLICATION SITE VESICLES** | 1.2% | **7.1%** | **4.8%** | ~5.0× placebo |
+
+> **Interpretation**: The local application site reactions (pruritus, erythema, irritation, vesicles) form a coherent cluster consistent with a **transdermal patch formulation**. The cholinergic-type systemic effects (nausea, vomiting, dizziness, hyperhidrosis, sinus bradycardia, syncope, salivary hypersecretion) are pharmacologically consistent with xanomeline's known **muscarinic agonist mechanism**.
+
+### 2b. Paradoxically Higher Rates in Placebo Than Active Arms
+
+These are unusual and warrant investigation for potential confounding, differential dropout, or coding issues:
+
+| Adverse Event | Placebo | High Dose | Low Dose | Concern |
+|---|---|---|---|---|
+| **DIARRHOEA** | **10.5%** | 4.8% | 4.8% | Placebo rate >2× active arms |
+| **UPPER RESP. TRACT INFECTION** | **7.0%** | 3.6% | 1.2% | Inverse dose-response |
+| **ECG ST SEGMENT DEPRESSION** | **4.7%** | 0.0% | 1.2% | 4 cases in placebo, 0 in high dose |
+| **EAR INFECTION** | **2.3%** | 0.0% | 0.0% | All cases in placebo |
+| **URINARY TRACT INFECTION** | **2.3%** | 1.2% | 0.0% | Higher in placebo |
+| **EXCORIATION** | **2.3%** | 1.2% | 1.2% | Higher in placebo |
+| **HYPOTENSION** | **2.3%** | 0.0% | 1.2% | Higher in placebo |
+
+> **Key concern – DIARRHOEA**: A 10.5% placebo rate that is more than double both active arms is highly unusual. This could reflect: (a) differential dropout in active arms before GI events could be captured, (b) a protective drug effect, (c) a coding or data entry error, or (d) chance in small samples. **This warrants source data verification.**
+
+> **Key concern – ECG ST SEGMENT DEPRESSION**: 4.7% in placebo vs. 0.0% in high dose is striking. If the drug has cardiovascular effects (as suggested by sinus bradycardia signal), the absence of ECG findings in the high-dose arm while placebo shows them is counterintuitive and may reflect differential ECG monitoring, differential dropout, or a genuine pharmacological effect.
+
+---
+
+## 3. Dose-Response Relationships
+
+### 3a.

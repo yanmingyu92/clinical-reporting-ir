@@ -1,0 +1,13 @@
+# CDISCPilot01 Data Source Definitions
+# SDTM XPT datasets bundled at cdisc_pilot01/sdtm_datasets/ (CDISC pilot project)
+
+data_sources:
+  adam:
+    library: adam
+    path: "adam"
+    datasets:
+      - adsl
+      - adae
+      - adadas
+      - adlbc
+      - adtte

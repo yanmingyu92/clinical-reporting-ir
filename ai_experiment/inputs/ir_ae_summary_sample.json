@@ -1,0 +1,101 @@
+[
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 1, "col_id": 1, "cell_value": null, "cell_formatted": "Table 14.3.1: Summary of Adverse Events by System Organ Class and Preferred Term (Safety Population)", "cell_type": "HEADER", "sort_order": 1},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 2, "col_id": 1, "cell_value": null, "cell_formatted": "", "cell_type": "HEADER", "sort_order": 2},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 3, "col_id": 1, "cell_value": null, "cell_formatted": "System Organ Class / Preferred Term", "cell_type": "HEADER", "sort_order": 3},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 3, "col_id": 2, "cell_value": null, "cell_formatted": "Placebo (N=86)", "cell_type": "HEADER", "sort_order": 4},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 3, "col_id": 3, "cell_value": null, "cell_formatted": "Xanomeline Low Dose (N=84)", "cell_type": "HEADER", "sort_order": 5},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 3, "col_id": 4, "cell_value": null, "cell_formatted": "Xanomeline High Dose (N=84)", "cell_type": "HEADER", "sort_order": 6},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 4, "col_id": 1, "cell_value": null, "cell_formatted": "Any Adverse Event", "cell_type": "LABEL", "sort_order": 7},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 4, "col_id": 2, "cell_value": 57, "cell_formatted": "57 (66.3%)", "cell_type": "PERCENTAGE", "sort_order": 8},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 4, "col_id": 3, "cell_value": 72, "cell_formatted": "72 (85.7%)", "cell_type": "PERCENTAGE", "sort_order": 9},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 4, "col_id": 4, "cell_value": 79, "cell_formatted": "79 (94.0%)", "cell_type": "PERCENTAGE", "sort_order": 10},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 5, "col_id": 1, "cell_value": null, "cell_formatted": "GENERAL DISORDERS AND ADMINISTRATION SITE CONDITIONS", "cell_type": "LABEL", "sort_order": 11},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 5, "col_id": 2, "cell_value": 15, "cell_formatted": "15 (17.4%)", "cell_type": "PERCENTAGE", "sort_order": 12},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 5, "col_id": 3, "cell_value": 46, "cell_formatted": "46 (54.8%)", "cell_type": "PERCENTAGE", "sort_order": 13},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 5, "col_id": 4, "cell_value": 63, "cell_formatted": "63 (75.0%)", "cell_type": "PERCENTAGE", "sort_order": 14},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 6, "col_id": 1, "cell_value": null, "cell_formatted": "  Application site erythema", "cell_type": "TEXT", "sort_order": 15},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 6, "col_id": 2, "cell_value": 7, "cell_formatted": "7 (8.1%)", "cell_type": "PERCENTAGE", "sort_order": 16},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 6, "col_id": 3, "cell_value": 35, "cell_formatted": "35 (41.7%)", "cell_type": "PERCENTAGE", "sort_order": 17},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 6, "col_id": 4, "cell_value": 52, "cell_formatted": "52 (61.9%)", "cell_type": "PERCENTAGE", "sort_order": 18},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 7, "col_id": 1, "cell_value": null, "cell_formatted": "  Application site pruritus", "cell_type": "TEXT", "sort_order": 19},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 7, "col_id": 2, "cell_value": 5, "cell_formatted": "5 (5.8%)", "cell_type": "PERCENTAGE", "sort_order": 20},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 7, "col_id": 3, "cell_value": 20, "cell_formatted": "20 (23.8%)", "cell_type": "PERCENTAGE", "sort_order": 21},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 7, "col_id": 4, "cell_value": 37, "cell_formatted": "37 (44.0%)", "cell_type": "PERCENTAGE", "sort_order": 22},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 8, "col_id": 1, "cell_value": null, "cell_formatted": "  Application site irritation", "cell_type": "TEXT", "sort_order": 23},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 8, "col_id": 2, "cell_value": 3, "cell_formatted": "3 (3.5%)", "cell_type": "PERCENTAGE", "sort_order": 24},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 8, "col_id": 3, "cell_value": 15, "cell_formatted": "15 (17.9%)", "cell_type": "PERCENTAGE", "sort_order": 25},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 8, "col_id": 4, "cell_value": 22, "cell_formatted": "22 (26.2%)", "cell_type": "PERCENTAGE", "sort_order": 26},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 9, "col_id": 1, "cell_value": null, "cell_formatted": "SKIN AND SUBCUTANEOUS TISSUE DISORDERS", "cell_type": "LABEL", "sort_order": 27},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 9, "col_id": 2, "cell_value": 12, "cell_formatted": "12 (14.0%)", "cell_type": "PERCENTAGE", "sort_order": 28},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 9, "col_id": 3, "cell_value": 30, "cell_formatted": "30 (35.7%)", "cell_type": "PERCENTAGE", "sort_order": 29},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 9, "col_id": 4, "cell_value": 42, "cell_formatted": "42 (50.0%)", "cell_type": "PERCENTAGE", "sort_order": 30},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 10, "col_id": 1, "cell_value": null, "cell_formatted": "  Erythema", "cell_type": "TEXT", "sort_order": 31},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 10, "col_id": 2, "cell_value": 5, "cell_formatted": "5 (5.8%)", "cell_type": "PERCENTAGE", "sort_order": 32},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 10, "col_id": 3, "cell_value": 18, "cell_formatted": "18 (21.4%)", "cell_type": "PERCENTAGE", "sort_order": 33},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 10, "col_id": 4, "cell_value": 27, "cell_formatted": "27 (32.1%)", "cell_type": "PERCENTAGE", "sort_order": 34},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 11, "col_id": 1, "cell_value": null, "cell_formatted": "  Pruritus", "cell_type": "TEXT", "sort_order": 35},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 11, "col_id": 2, "cell_value": 4, "cell_formatted": "4 (4.7%)", "cell_type": "PERCENTAGE", "sort_order": 36},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 11, "col_id": 3, "cell_value": 10, "cell_formatted": "10 (11.9%)", "cell_type": "PERCENTAGE", "sort_order": 37},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 11, "col_id": 4, "cell_value": 16, "cell_formatted": "16 (19.0%)", "cell_type": "PERCENTAGE", "sort_order": 38},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 12, "col_id": 1, "cell_value": null, "cell_formatted": "GASTROINTESTINAL DISORDERS", "cell_type": "LABEL", "sort_order": 39},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 12, "col_id": 2, "cell_value": 18, "cell_formatted": "18 (20.9%)", "cell_type": "PERCENTAGE", "sort_order": 40},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 12, "col_id": 3, "cell_value": 24, "cell_formatted": "24 (28.6%)", "cell_type": "PERCENTAGE", "sort_order": 41},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 12, "col_id": 4, "cell_value": 31, "cell_formatted": "31 (36.9%)", "cell_type": "PERCENTAGE", "sort_order": 42},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 13, "col_id": 1, "cell_value": null, "cell_formatted": "  Nausea", "cell_type": "TEXT", "sort_order": 43},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 13, "col_id": 2, "cell_value": 6, "cell_formatted": "6 (7.0%)", "cell_type": "PERCENTAGE", "sort_order": 44},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 13, "col_id": 3, "cell_value": 12, "cell_formatted": "12 (14.3%)", "cell_type": "PERCENTAGE", "sort_order": 45},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 13, "col_id": 4, "cell_value": 17, "cell_formatted": "17 (20.2%)", "cell_type": "PERCENTAGE", "sort_order": 46},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 14, "col_id": 1, "cell_value": null, "cell_formatted": "  Diarrhoea", "cell_type": "TEXT", "sort_order": 47},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 14, "col_id": 2, "cell_value": 8, "cell_formatted": "8 (9.3%)", "cell_type": "PERCENTAGE", "sort_order": 48},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 14, "col_id": 3, "cell_value": 10, "cell_formatted": "10 (11.9%)", "cell_type": "PERCENTAGE", "sort_order": 49},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 14, "col_id": 4, "cell_value": 9, "cell_formatted": "9 (10.7%)", "cell_type": "PERCENTAGE", "sort_order": 50},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 15, "col_id": 1, "cell_value": null, "cell_formatted": "  Vomiting", "cell_type": "TEXT", "sort_order": 51},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 15, "col_id": 2, "cell_value": 3, "cell_formatted": "3 (3.5%)", "cell_type": "PERCENTAGE", "sort_order": 52},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 15, "col_id": 3, "cell_value": 8, "cell_formatted": "8 (9.5%)", "cell_type": "PERCENTAGE", "sort_order": 53},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 15, "col_id": 4, "cell_value": 12, "cell_formatted": "12 (14.3%)", "cell_type": "PERCENTAGE", "sort_order": 54},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 16, "col_id": 1, "cell_value": null, "cell_formatted": "NERVOUS SYSTEM DISORDERS", "cell_type": "LABEL", "sort_order": 55},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 16, "col_id": 2, "cell_value": 14, "cell_formatted": "14 (16.3%)", "cell_type": "PERCENTAGE", "sort_order": 56},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 16, "col_id": 3, "cell_value": 19, "cell_formatted": "19 (22.6%)", "cell_type": "PERCENTAGE", "sort_order": 57},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 16, "col_id": 4, "cell_value": 25, "cell_formatted": "25 (29.8%)", "cell_type": "PERCENTAGE", "sort_order": 58},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 17, "col_id": 1, "cell_value": null, "cell_formatted": "  Dizziness", "cell_type": "TEXT", "sort_order": 59},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 17, "col_id": 2, "cell_value": 5, "cell_formatted": "5 (5.8%)", "cell_type": "PERCENTAGE", "sort_order": 60},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 17, "col_id": 3, "cell_value": 9, "cell_formatted": "9 (10.7%)", "cell_type": "PERCENTAGE", "sort_order": 61},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 17, "col_id": 4, "cell_value": 12, "cell_formatted": "12 (14.3%)", "cell_type": "PERCENTAGE", "sort_order": 62},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 18, "col_id": 1, "cell_value": null, "cell_formatted": "  Headache", "cell_type": "TEXT", "sort_order": 63},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 18, "col_id": 2, "cell_value": 7, "cell_formatted": "7 (8.1%)", "cell_type": "PERCENTAGE", "sort_order": 64},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 18, "col_id": 3, "cell_value": 8, "cell_formatted": "8 (9.5%)", "cell_type": "PERCENTAGE", "sort_order": 65},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 18, "col_id": 4, "cell_value": 10, "cell_formatted": "10 (11.9%)", "cell_type": "PERCENTAGE", "sort_order": 66},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 19, "col_id": 1, "cell_value": null, "cell_formatted": "PSYCHIATRIC DISORDERS", "cell_type": "LABEL", "sort_order": 67},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 19, "col_id": 2, "cell_value": 10, "cell_formatted": "10 (11.6%)", "cell_type": "PERCENTAGE", "sort_order": 68},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 19, "col_id": 3, "cell_value": 13, "cell_formatted": "13 (15.5%)", "cell_type": "PERCENTAGE", "sort_order": 69},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 19, "col_id": 4, "cell_value": 17, "cell_formatted": "17 (20.2%)", "cell_type": "PERCENTAGE", "sort_order": 70},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 20, "col_id": 1, "cell_value": null, "cell_formatted": "  Insomnia", "cell_type": "TEXT", "sort_order": 71},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 20, "col_id": 2, "cell_value": 4, "cell_formatted": "4 (4.7%)", "cell_type": "PERCENTAGE", "sort_order": 72},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 20, "col_id": 3, "cell_value": 5, "cell_formatted": "5 (6.0%)", "cell_type": "PERCENTAGE", "sort_order": 73},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 20, "col_id": 4, "cell_value": 8, "cell_formatted": "8 (9.5%)", "cell_type": "PERCENTAGE", "sort_order": 74},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 21, "col_id": 1, "cell_value": null, "cell_formatted": "  Agitation", "cell_type": "TEXT", "sort_order": 75},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 21, "col_id": 2, "cell_value": 3, "cell_formatted": "3 (3.5%)", "cell_type": "PERCENTAGE", "sort_order": 76},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 21, "col_id": 3, "cell_value": 5, "cell_formatted": "5 (6.0%)", "cell_type": "PERCENTAGE", "sort_order": 77},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 21, "col_id": 4, "cell_value": 7, "cell_formatted": "7 (8.3%)", "cell_type": "PERCENTAGE", "sort_order": 78},
+
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 22, "col_id": 1, "cell_value": null, "cell_formatted": "Source: ADAE; Population: Safety", "cell_type": "FOOTNOTE", "sort_order": 79},
+  {"report_id": "T-14.3.1", "execution_id": "EXEC-2026-002", "row_id": 23, "col_id": 1, "cell_value": null, "cell_formatted": "A subject with multiple events in the same category is counted only once in that category. MedDRA Version 22.0.", "cell_type": "FOOTNOTE", "sort_order": 80}
+]

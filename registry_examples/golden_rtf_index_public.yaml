@@ -1,0 +1,43 @@
+# Golden-RTF Index for CDISCPilot01 Public Track (Phase E)
+# ----------------------------------------------------------------------------
+# Self-referencing golden archive: the 5 native-produced RTFs serve as their
+# own golden baseline to prove reproducibility (identical output on re-run).
+#
+# golden_root is resolved relative to repo_root (see the storage.config
+# golden_rtf_root in cdisc_pilot01/config/environment.yaml).
+
+schema_version: 1
+study: CDISCPilot01
+golden_root: "cdisc_pilot01/golden_outputs/"
+extraction_date: "2026-05-06"
+
+entries:
+  - macro: cl_descriptive_stats
+    rtf: "PUB-DEMOGRAPHICS.rtf"
+    size_kb: 27.0
+    bridge_key: "pub_demographics"
+    family: demographics
+
+  - macro: cl_frequency_count
+    rtf: "PUB-AE-OVERVIEW.rtf"
+    size_kb: 14.3
+    bridge_key: "pub_ae_overview"
+    family: ae
+
+  - macro: cl_frequency_count
+    rtf: "PUB-AE-BY-SOC.rtf"
+    size_kb: 276.3
+    bridge_key: "pub_ae_by_soc"
+    family: ae
+
+  - macro: cl_descriptive_stats
+    rtf: "PUB-EFFICACY.rtf"
+    size_kb: 4.6
+    bridge_key: "pub_efficacy"
+    family: efficacy
+
+  - macro: re_graph_km
+    rtf: "PUB-KM-TTDE.rtf"
+    size_kb: 282.5
+    bridge_key: "pub_km_ttde"
+    family: survival

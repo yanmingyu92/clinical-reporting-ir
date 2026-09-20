@@ -1,0 +1,240 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yanmingyu92/clinical-reporting-ir/tree/main/schema/report_type.schema.json",
+  "title": "Modernized Framework Report Type Definition",
+  "description": "Schema for report type YAML files in the registry. Defines the pipeline steps, parameters, IR mapping, and render configuration for a specific type of clinical report.",
+  "type": "object",
+  "required": [
+    "name",
+    "description",
+    "category",
+    "pipeline",
+    "parameters",
+    "ir_mapping",
+    "render"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Unique report type identifier in snake_case"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human-readable description of the report type"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "safety",
+        "efficacy",
+        "demographics",
+        "disposition",
+        "exposure",
+        "laboratory",
+        "figure",
+        "listing",
+        "esub"
+      ],
+      "description": "Report category for grouping"
+    },
+    "extends": {
+      "type": "string",
+      "description": "Base report type to inherit from (optional)"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Report type definition version"
+    },
+    "pipeline": {
+      "type": "object",
+      "description": "Ordered pipeline steps for each phase",
+      "required": [
+        "data",
+        "compute",
+        "render"
+      ],
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Data layer operation names in execution order"
+        },
+        "compute": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Compute layer operation names in execution order"
+        },
+        "render": {
+          "type": "string",
+          "description": "Render engine name"
+        }
+      }
+    },
+    "parameters": {
+      "type": "object",
+      "description": "Report-level parameters with defaults",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "string",
+              "integer",
+              "float",
+              "boolean",
+              "list",
+              "dataset_ref"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "default": {},
+          "description": {
+            "type": "string"
+          },
+          "allowed_values": {
+            "type": "array",
+            "description": "Enumerated allowed values"
+          }
+        },
+        "required": [
+          "type",
+          "description"
+        ]
+      }
+    },
+    "ir_mapping": {
+      "type": "object",
+      "description": "Configuration for mapping compute output to IR",
+      "required": [
+        "rows",
+        "columns",
+        "cells"
+      ],
+      "properties": {
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Group variables that become rows"
+        },
+        "columns": {
+          "type": "string",
+          "description": "Variable that becomes columns (typically treatment)"
+        },
+        "cells": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Statistics to include in each cell"
+        },
+        "cell_format": {
+          "type": "string",
+          "description": "Display format template, e.g., '{N} ({PCT}%)'"
+        },
+        "row_indent": {
+          "type": "object",
+          "description": "Indent level per row variable",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "render": {
+      "type": "object",
+      "description": "Render configuration",
+      "properties": {
+        "engine": {
+          "type": "string",
+          "description": "Render engine name (e.g., re_rtf_table)"
+        },
+        "title_template": {
+          "type": "string",
+          "description": "Title template with placeholders"
+        },
+        "footnotes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Standard footnotes for this report type"
+        },
+        "column_widths": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          },
+          "description": "Relative column widths"
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "description": "Validation rules for this report type",
+      "properties": {
+        "required_datasets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "ADaM datasets required as input"
+        },
+        "required_variables": {
+          "type": "object",
+          "description": "Required variables per dataset",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "ir_reconciliation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether IR reconciliation is required"
+        }
+      }
+    },
+    "custom_steps": {
+      "type": "object",
+      "description": "Custom SAS steps for study-specific extensions",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "type",
+          "description"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "inline_sas"
+            ]
+          },
+          "code_file": {
+            "type": "string",
+            "description": "Path to custom SAS code file"
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable description of the custom step"
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

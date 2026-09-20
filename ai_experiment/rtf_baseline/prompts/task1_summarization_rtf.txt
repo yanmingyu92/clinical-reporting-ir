@@ -1,0 +1,1 @@
+Given the following RTF-rendered clinical trial demographics table, provide a natural-language summary suitable for a clinical study report. The table is presented as pipe-delimited rows extracted from the RTF. Reconstruct the table semantics from the layout and produce an accurate narrative.
